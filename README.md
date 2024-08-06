@@ -1,1 +1,1 @@
-# MealsAPp
+# MealsApp
