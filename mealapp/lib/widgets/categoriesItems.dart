@@ -8,22 +8,18 @@ class Categoriesitems extends StatelessWidget {
   const Categoriesitems({super.key});
 
   void _SelectedCategory(BuildContext context, Category category) {
-    dummyMeals.where((Meal)=> Meal.categories.contains(category.id),);
+    final filteredMeals = dummyMeals.where((meal)=> meal.categories.contains(category.id),).toList();
 
     Navigator.of(context).push(
       MaterialPageRoute(
           builder: (ctx) => MealsScreen(
-            meals: dummyMeals, 
+            meals: filteredMeals, 
             title: category.title)),
     );
   }
 
   Widget build(context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pick your Category'),
-      ),
-      body: GridView(
+    return GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -39,7 +35,6 @@ class Categoriesitems extends StatelessWidget {
               },
             )
         ],
-      ),
     );
   }
 }
