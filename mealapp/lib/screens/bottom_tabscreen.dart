@@ -46,6 +46,14 @@ class _BottomTabscreenState extends State<BottomTabscreen>{
       });
     }
 
+    void _setScreen(String identifier){
+      if(identifier == 'filters'){
+
+      }else{
+        Navigator.of(context).pop();
+      }
+    }
+
     Widget build(context){
 
       Widget activeScreen = Categoriesitems(onTogglefavorite: _toggleMealFavoriteStatus,);
@@ -59,7 +67,7 @@ class _BottomTabscreenState extends State<BottomTabscreen>{
         appBar: AppBar(
           title: Text(activepagetitles),
         ),
-        drawer: MainDrawer(),
+        drawer: MainDrawer(onSelectScreen: _setScreen,),
         body: activeScreen ,
         bottomNavigationBar: BottomNavigationBar(
           onTap: _selectPage,
