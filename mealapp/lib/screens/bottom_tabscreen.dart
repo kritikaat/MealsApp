@@ -64,7 +64,7 @@ class _BottomTabscreenState extends State<BottomTabscreen> {
     if (identifier == 'filters') {
       final result = await Navigator.of(context).push<Map<Filter,bool>>(
         MaterialPageRoute(
-          builder: (ctx) => FiltersScreen(),
+          builder: (ctx) => FiltersScreen(currentFilters: _selectedFilters,),
         ),
       );
 
@@ -116,7 +116,7 @@ class _BottomTabscreenState extends State<BottomTabscreen> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,
-        items: [
+        items:const [
           BottomNavigationBarItem(
               icon: Icon(Icons.set_meal), label: 'Categories'),
           BottomNavigationBarItem(
