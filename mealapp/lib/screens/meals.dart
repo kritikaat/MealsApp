@@ -7,13 +7,11 @@ class MealsScreen extends StatelessWidget {
   const MealsScreen(
       {super.key,
       required this.meals,
-      this.title,
-      required this.onTogglefavorite}
+      this.title,}
   );
 
   final List<Meal> meals;
   final String? title;
-  final void Function(Meal meal) onTogglefavorite;
 
   void _selectedMeal(BuildContext context, Meal meal) {
     //dummyMeals.where((Meal) => Meal.categories.contains(category.id));
@@ -21,7 +19,6 @@ class MealsScreen extends StatelessWidget {
       MaterialPageRoute(
         builder: (ctx) => MealDetailsScreen(
           meal: meal,
-          onTogglefavorite: onTogglefavorite,
         ),
       ),
     );
